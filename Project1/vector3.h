@@ -7,6 +7,7 @@ using namespace std;
 
 class vector3
 {
+public:
 	float x, y, z;
 
 	// Constructors
@@ -27,7 +28,7 @@ class vector3
 	vector3 operator/(float value); // division
 	vector3& operator/=(float value); // assign new result to vector
 
-	vector3& operator=(const vector3& vec);
+	vector3 &operator=(const vector3 &vec);
 
 	// Vector operations
 	float dot_product(const vector3& vec); // scalar dot product

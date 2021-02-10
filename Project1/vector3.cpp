@@ -53,6 +53,7 @@ vector3& vector3::operator-=(const vector3& vec)
 	x -= vec.x;
 	y -= vec.y;
 	z -= vec.z;
+	return *this;
 }
 
 // Scalar multiplication
@@ -68,6 +69,7 @@ vector3& vector3::operator*=(float value)
 	x *= value;
 	y *= value;
 	z *= value;
+	return *this;
 }
 
 // Scalar division
@@ -84,12 +86,16 @@ vector3 &vector3::operator/=(float value)
 	x /= value;
 	y /= value;
 	z /= value;
+	return *this;
 }
 
-vector3& vector3::operator=(const vector3& vec)
+vector3 &vector3::operator=(const vector3& vec)
 {
 	// Similar to addition
-	return vector3(x = vec.x, y = vec.y, z = vec.z);
+	x = vec.x;
+	y = vec.y;
+	z = vec.z;
+	return *this;
 }
 
 
@@ -108,7 +114,7 @@ vector3 vector3::cross_product(const vector3& vec)
 	float nj = x * vec.z - z * vec.x;
 	float nk = x * vec.y - y * vec.x;
 
-	return vector3(ni, nj, nk);
+	return vector3(ni, -(nj), nk);
 }
 
 float vector3::magnitude()
@@ -149,5 +155,5 @@ float vector3::show_Z()
 
 void vector3::disp()
 {
-	cout << x << " " << y << " " << z << endl;
+	cout << x << ", " << y << ", " << z << endl;
 }
